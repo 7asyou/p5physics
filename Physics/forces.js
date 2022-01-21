@@ -1,3 +1,3 @@
-friction = () => {};
-gravity = () => {};
-gravitation = () => {};
+let friction = () => {};
+let gravity = () => {};
+let gravitation = () => {};

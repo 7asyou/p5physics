@@ -2,6 +2,8 @@
   "include": [
     "*.js",
     "libraries/*.js",
+	"Particule/*.js",
+	"Physics/*.js",
     "c:\\Users\\7asyou\\.vscode\\extensions\\samplavigne.p5-vscode-1.2.8\\p5types\\global.d.ts"
   ]
 }

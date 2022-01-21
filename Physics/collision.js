@@ -1,3 +1,3 @@
-collision = () => {};
-collisionUpdate = () => {};
-borderColision = () => {};
+let collision = () => {};
+let collisionUpdate = () => {};
+let borderColision = () => {};
