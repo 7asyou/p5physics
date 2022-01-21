@@ -1,0 +1,3 @@
+friction = () => {};
+gravity = () => {};
+gravitation = () => {};
