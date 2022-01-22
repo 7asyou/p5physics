@@ -1,19 +1,22 @@
 class Particule {
-	constructor(width, height) {
+	constructor(canvas) {
 		this.position = {
-			x: random(50, width - 50),
-			y: random(50, height - 50),
+			x: random(50, canvas.x - 50),
+			y: random(50, canvas.y - 50),
 		};
 		this.velocity = {
-			x: 0,
-			y: 0,
+			x: random(-150, 150),
+			y: random(-600, 600),
+			// x: 0,
+			// y: 0,
 		};
 		this.force = {
 			x: 0,
-			y: 100,
+			y: 10000,
 		};
 		this.mass = random(10, 60);
 		this.diameter = this.mass;
+		this.radius = this.diameter / 2;
 		this.color = random(255);
 	}
 
@@ -39,7 +42,7 @@ class Particule {
 	//	deltaT: time unite = 1/frameRate
 	velocityUpdate(deltaT) {
 		for (let axis in this.velocity) {
-			this.velocity[axis] += this.force[axis] * deltaT;
+			this.velocity[axis] += (this.force[axis] * deltaT) / this.mass;
 		}
 	}
 
