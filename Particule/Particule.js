@@ -47,5 +47,20 @@ class Particule {
 	}
 
 	// should take a set of forces (array of forces) and sum them up
-	forceUpdate() {}
+	// input: forces; array of forces
+	forceUpdate(forces) {
+		let res = {
+			x: 0,
+			y: 0,
+		};
+		if (forces.lenght > 0) {
+			forces.forEach((force) => {
+				for (const axis in force) {
+					res[axis] += force[axis];
+				}
+			});
+			this.force = res;
+		}
+		return { status: "error", desc: "forces is not a full array" };
+	}
 }
