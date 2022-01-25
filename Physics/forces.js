@@ -25,3 +25,7 @@ let gravitation = (gravitationalConstant, particule) => {
 		y: 0,
 	};
 };
+
+let forces = (particule) => {
+	return [gravity()];
+};

@@ -7,8 +7,6 @@ const deltaT = 1 / FR;
 const unit = 5;
 let a;
 
-let forces = [];
-
 function setup() {
 	createCanvas(canvas.x, canvas.y);
 	frameRate(FR);

@@ -1,12 +1,13 @@
 class Particule {
 	constructor(canvas) {
 		this.position = {
-			x: random(50, canvas.x - 50),
-			y: random(50, canvas.y - 50),
+			x: myRand(50, canvas.x - 50),
+			y: myRand(50, canvas.y - 50),
 		};
+
 		this.velocity = {
-			x: random(-150, 150),
-			y: random(-600, 600),
+			x: myRand(-150, 150),
+			y: myRand(-150, 150),
 			// x: 0,
 			// y: 0,
 		};
