@@ -1,5 +1,6 @@
 {
 	"prettier.useTabs": true,
 	"reactSnippets.settings.tabWidth": 4,
-	"prettier.tabWidth": 4
+	"prettier.tabWidth": 4,
+	"editor.bracketPairColorization.enabled": true
 }

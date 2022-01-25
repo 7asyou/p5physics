@@ -28,8 +28,42 @@ let borderCollision = (particule, deltaT) => {
 	}
 };
 
-let collision = () => {};
-let collisionUpdate = () => {};
+let particuleCollision = (particuleA, particuleB) => {
+	let relativeVelocity = {
+		x: particuleA.velocity.x - particuleB.velocity.x,
+		y: particuleA.velocity.y - particuleB.velocity.y,
+	};
+
+	let relativePosition = {
+		x: particuleB.position.x - particuleA.position.x,
+		y: particuleB.position.y - particuleA.position.y,
+	};
+
+	if (
+		distance(particuleA.position, particuleB.position) <=
+			particuleA.radius + particuleB.radius &&
+		dotProduct(relativePosition, relativeVelocity) <= 0
+	) {
+		return true;
+	}
+	return false;
+};
+let particuleCollisionEnergy = (particuleA, particuleB) => {
+	let temp = [{ ...particuleA.velocity }, { ...particuleB.velocity }];
+	for (const particule in temp) {
+		particuleA.velocity ={
+			x : 
+			((temp[0].mass - temp[1].mass) /(temp[0].mass + temp[1].mass)) *temp[0].velocity.x +
+			((2 * temp[1].mass) /(temp[0].mass + temp[1].mass)) *temp[1].velocity.x
+				
+	}
+};
+
+let particuleCollisionUpdate = (particules) => {
+	for (let i = 0; i < particules.length - 1; i++) {
+		for (let j = i + 1; j < array.length; j++) {}
+	}
+};
 
 //! unused code
 // border collision using seperate checking function for each axis
