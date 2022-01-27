@@ -1,1 +1,2 @@
-const g = 10;
+const g = 100;
+const frictionConstant = 10;

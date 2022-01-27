@@ -1,5 +1,7 @@
 let createParticules = (number, canvas, particules) => {
+	console.log(number);
 	for (let i = 0; i < number; i++) {
+		console.log(i);
 		particules[i] = new Particule(canvas);
 	}
 };

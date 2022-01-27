@@ -12,7 +12,7 @@ let dotProduct = (vectA, vectB) => {
 	return dp;
 };
 
-let distance = (a, b) => {
+let myDistance = (a, b) => {
 	let distanceSquared = 0;
 	for (let axis in a) {
 		distanceSquared += (a[axis] - b[axis]) ** 2;

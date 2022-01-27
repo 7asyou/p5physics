@@ -40,28 +40,47 @@ let particuleCollision = (particuleA, particuleB) => {
 	};
 
 	if (
-		distance(particuleA.position, particuleB.position) <=
+		myDistance(particuleA.position, particuleB.position) <=
 			particuleA.radius + particuleB.radius &&
-		dotProduct(relativePosition, relativeVelocity) <= 0
+		dotProduct(relativePosition, relativeVelocity) >= 0
 	) {
 		return true;
 	}
 	return false;
 };
+
 let particuleCollisionEnergy = (particuleA, particuleB) => {
-	let temp = [{ ...particuleA.velocity }, { ...particuleB.velocity }];
-	for (const particule in temp) {
-		particuleA.velocity ={
-			x : 
-			((temp[0].mass - temp[1].mass) /(temp[0].mass + temp[1].mass)) *temp[0].velocity.x +
-			((2 * temp[1].mass) /(temp[0].mass + temp[1].mass)) *temp[1].velocity.x
-				
-	}
+	let temp = [{ ...particuleA }, { ...particuleB }];
+	let u1 = temp[0].velocity;
+	let m1 = temp[0].mass;
+	let v1 = {
+		x: 0,
+		y: 0,
+	};
+	let u2 = temp[1].velocity;
+	let m2 = temp[1].mass;
+	let v2 = {
+		x: 0,
+		y: 0,
+	};
+
+	v1.x = ((m1 - m2) / (m1 + m2)) * u1.x + ((2 * m2) / (m1 + m2)) * u2.x;
+	v1.y = ((m1 - m2) / (m1 + m2)) * u1.y + ((2 * m2) / (m1 + m2)) * u2.y;
+
+	v2.x = ((2 * m1) / (m1 + m2)) * u1.x + ((m2 - m1) / (m1 + m2)) * u2.x;
+	v2.y = ((2 * m1) / (m1 + m2)) * u1.y + ((m2 - m1) / (m1 + m2)) * u2.y;
+	particuleA.velocity = v1;
+	particuleB.velocity = v2;
 };
 
 let particuleCollisionUpdate = (particules) => {
 	for (let i = 0; i < particules.length - 1; i++) {
-		for (let j = i + 1; j < array.length; j++) {}
+		for (let j = i + 1; j < particules.length; j++) {
+			if (particuleCollision(particules[i], particules[j])) {
+				particuleCollisionEnergy(particules[i], particules[j]);
+				console.log("collision");
+			}
+		}
 	}
 };
 

@@ -6,6 +6,7 @@ let friction = (frictionConstant, particule) => {
 	for (const axis in res) {
 		res[axis] = -frictionConstant * particule.velocity[axis];
 	}
+	console.log(res);
 	return res;
 };
 
@@ -28,5 +29,5 @@ let gravitation = (gravitationalConstant, particule) => {
 };
 
 let forces = (particule) => {
-	return [gravity(g, particule)];
+	return [gravity(g, particule), friction(frictionConstant, particule)];
 };

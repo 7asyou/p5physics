@@ -13,7 +13,7 @@ class Particule {
 		};
 		this.force = {
 			x: 0,
-			y: 10000,
+			y: 0,
 		};
 		this.mass = random(10, 60);
 		this.diameter = this.mass;
@@ -54,7 +54,7 @@ class Particule {
 			x: 0,
 			y: 0,
 		};
-		if (forces.lenght > 0) {
+		if (forces.length > 0) {
 			forces.forEach((force) => {
 				for (const axis in force) {
 					res[axis] += force[axis];

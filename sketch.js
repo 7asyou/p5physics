@@ -11,15 +11,11 @@ let particules = [];
 function setup() {
 	createCanvas(canvas.x, canvas.y);
 	frameRate(FR);
-	a = new Particule(canvas);
-	createParticules(3, canvas, particules);
+	createParticules(5, canvas, particules);
 }
 
 function draw() {
 	background(220);
-	borderCollision(a, deltaT);
-	a.velocityUpdate(deltaT);
-	a.positionUpdate(deltaT, unit);
-	a.show();
+	particuleCollisionUpdate(particules);
 	motionParticules(particules, deltaT, unit);
 }
